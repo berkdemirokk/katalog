@@ -2,273 +2,270 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Licina Site Kataloğu</title>
-<meta name="description" content="Licina Digital site taslakları: kuaför, kafe, pansiyon ve diş kliniği için hazırlanmış dört örnek site, SEO ve paket fiyatları.">
+<meta name="description" content="Licina Digital site kataloğu: kuaför, kafe, pansiyon ve diş kliniği için dört site taslağı, SEO ve paket fiyatları.">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* Layout: Swiss, white. One light tile per draft with its screenshots; black type and buttons, the brand green only on small marks. */
+/* Layout: a fashion-house storefront. White ground, black type, colour only in the pictures.
+   Full-bleed pictures with small centred captions, a four-up "product" grid on grey, square buttons, a black footer. */
 :root {
   color-scheme: light;
-  --bg: #ffffff; --surface: #f4f4f5; --surface-2: #fafafa; --ink: #18181b; --muted: #52525b; --line: #e4e4e7;
-  --accent: #18181b; --accent-ink: #ffffff; --brand: #14833a; --bar: rgba(255, 255, 255, 0.82);
+  --bg: #ffffff; --panel: #f5f5f5; --ink: #000000; --muted: #5e5e5e; --line: #e6e6e6;
+  --foot-bg: #000000; --foot-ink: #ffffff; --foot-muted: #a3a3a3;
   --font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --gut-l: max(20px, env(safe-area-inset-left, 0px)); --gut-r: max(20px, env(safe-area-inset-right, 0px));
-  --radius: 20px;
+  --gut: clamp(16px, 3.2vw, 48px);
 }
-
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.5 var(--font); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; background: var(--bg); color: var(--ink); font: 400 1rem/1.5 var(--font); -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
-.wrap { max-width: 1240px; margin-inline: auto; padding-left: var(--gut-l); padding-right: var(--gut-r); }
-.muted { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.skip { position: absolute; left: 12px; top: -48px; z-index: 50; background: var(--ink); color: var(--bg); padding: 10px 14px; font-size: 0.8125rem; }
+.skip:focus { top: 12px; }
+.wrap { max-width: 1440px; margin-inline: auto; padding-left: max(var(--gut), env(safe-area-inset-left, 0px)); padding-right: max(var(--gut), env(safe-area-inset-right, 0px)); }
 
-/* type: tracking tightens as size grows */
-.h-display { font-size: clamp(2.5rem, 6.6vw, 5.25rem); line-height: 1.03; letter-spacing: -0.035em; font-weight: 600; text-wrap: balance; }
-.h-section { font-size: clamp(2rem, 4.4vw, 3.5rem); line-height: 1.06; letter-spacing: -0.03em; font-weight: 600; text-wrap: balance; }
-.h-tile { font-size: clamp(2rem, 3.6vw, 3.25rem); line-height: 1.04; letter-spacing: -0.03em; font-weight: 600; }
-.lead { font-size: clamp(1.125rem, 1.6vw, 1.375rem); line-height: 1.42; letter-spacing: -0.01em; max-width: 46ch; }
-.kicker { font-size: 0.9375rem; font-weight: 600; letter-spacing: 0; }
+/* type: small, bold, upper-case titles with a quiet line under them */
+.t-title { font-size: 1rem; line-height: 1.5; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+.t-sub { font-size: 0.875rem; line-height: 1.45; color: var(--muted); letter-spacing: -0.01em; }
+.module { text-align: center; display: grid; gap: 8px; justify-items: center; padding-block: clamp(56px, 7vw, 96px) clamp(28px, 3.4vw, 44px); }
+.module .t-sub { max-width: 60ch; }
 
-/* buttons: answer on press, not on release */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px; border-radius: 999px; border: 0; background: var(--accent); color: var(--accent-ink); font: 600 1rem/1 var(--font); cursor: pointer; transition: transform 0.1s ease-out, filter 0.2s ease; }
-.btn:hover { background: #3f3f46; }
-.btn--quiet:hover { background: var(--surface); }
-.btn:active { transform: scale(0.97); }
-.btn--quiet { background: transparent; color: inherit; box-shadow: inset 0 0 0 1px currentColor; }
-.textlink { color: var(--brand); font-weight: 600; }
-.textlink:hover { text-decoration: underline; text-underline-offset: 4px; }
+/* buttons: square, 48px, small bold capitals */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 0; border-radius: 0; font: 700 0.75rem/1 var(--font); text-transform: uppercase; letter-spacing: 0.02em; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease; }
+.btn:active { transform: scale(0.98); }
+.btn--white { background: #ffffff; color: #000000; }
+.btn--white:hover { background: #000000; color: #ffffff; }
+.btn--black { background: #000000; color: #ffffff; }
+.btn--black:hover { background: #333333; }
+.ulink { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink); background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; padding-bottom: 3px; transition: background-size 0.3s ease; }
+a:hover .ulink, .ulink:hover { background-size: 0 1px; background-position: 100% 100%; }
 
-/* bar: a translucent layer, content scrolls under it */
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
-.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bar); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line); }
-.bar__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.01em; }
-.brand__mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--brand); color: #ffffff; font-weight: 800; font-size: 1.05rem; line-height: 1; }
-.bar__links { display: flex; gap: 26px; font-size: 0.9375rem; }
-.bar__links a { opacity: 0.82; }
-.bar__links a:hover { opacity: 1; }
-.bar .btn { min-height: 36px; padding: 0 16px; font-size: 0.9375rem; }
-@media (max-width: 720px) { .bar__links { display: none; } }
-@media (prefers-reduced-transparency: reduce) { .bar { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+/* announcement bar */
+.note-bar { background: var(--panel); text-align: center; font-size: 0.75rem; font-weight: 500; padding: 11px 16px; letter-spacing: -0.01em; }
 
-/* hero */
-.hero { padding-block: clamp(56px, 9vw, 120px) clamp(40px, 6vw, 72px); }
-.hero__grid { display: grid; gap: 28px; justify-items: start; }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 8px; font-size: 0.9375rem; color: var(--muted); }
+/* header: over the first picture, white */
+.hero { position: relative; isolation: isolate; color: #ffffff; background: #111111; }
+.head { position: absolute; inset: 0 0 auto 0; z-index: 3; }
+.head__row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; min-height: 64px; }
+.head__left, .head__right { display: flex; gap: 22px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+.head__right { justify-content: flex-end; }
+.head a { padding-block: 12px; }
+.head a:hover { opacity: 0.7; }
+.mark { font-size: 1.0625rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; padding-left: 0.32em; }
+@media (max-width: 720px) { .head__left { display: none; } .head__row { grid-template-columns: 1fr auto; } .mark { justify-self: start; padding-left: 0; } .head__right a:not(:last-child) { display: none; } }
 
-/* tiles: each draft in its own colour */
-.tiles { display: grid; gap: clamp(16px, 2vw, 24px); }
-.tile { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(28px, 4.4vw, 64px); border-radius: var(--radius); background: var(--surface); color: var(--ink); border: 1px solid var(--line); overflow: hidden; }
-.tile--flip .tile__text { order: 2; }
-.tile__text { display: grid; gap: 18px; justify-items: start; min-width: 0; }
-.tile__sector { font-size: 0.9375rem; font-weight: 600; color: var(--muted); }
-.tile__copy { font-size: 1.125rem; line-height: 1.5; max-width: 36ch; color: #3f3f46; }
-.tile__list { display: grid; gap: 8px; font-size: 1rem; }
-.tile__list li { padding-left: 18px; position: relative; color: #3f3f46; }
-.tile__list li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 2px; background: var(--brand); }
-.tile__shots { position: relative; min-width: 0; padding-bottom: 7%; padding-right: 7%; }
-.tile--flip .tile__shots { padding-right: 0; padding-left: 7%; }
-.shot-desk { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 14px; box-shadow: 0 24px 48px -24px rgba(24, 24, 27, 0.35), 0 0 0 1px rgba(24, 24, 27, 0.08); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.shot-phone { position: absolute; right: 0; bottom: 0; width: 23%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 16px; box-shadow: 0 20px 40px -16px rgba(24, 24, 27, 0.4), 0 0 0 1px rgba(24, 24, 27, 0.1); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.tile--flip .shot-phone { right: auto; left: 0; }
-.tile:hover .shot-desk { transform: translateY(-4px); }
-.tile:hover .shot-phone { transform: translateY(-8px); }
-@media (max-width: 860px) { .tile, .tile--flip { grid-template-columns: 1fr; } .tile--flip .tile__text { order: 0; } }
-@media (prefers-reduced-motion: reduce) { .shot-desk, .shot-phone, .btn { transition: none; } .tile:hover .shot-desk, .tile:hover .shot-phone { transform: none; } html { scroll-behavior: auto; } }
+.hero__pic { width: 100%; height: auto; aspect-ratio: 1920 / 835; min-height: 560px; object-fit: cover; object-position: 50% 50%; }
+.hero__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 42%), linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 18%); pointer-events: none; }
+.hero__cap { position: absolute; z-index: 2; left: max(var(--gut), env(safe-area-inset-left, 0px)); bottom: clamp(28px, 5svh, 56px); max-width: 440px; display: grid; justify-items: start; gap: 12px; text-align: left; }
+.hero__cap h1 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.2; text-wrap: balance; }
+.hero__cap p { font-size: 0.875rem; opacity: 0.9; max-width: 52ch; }
+.hero__actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start; margin-top: 4px; }
+.hero__cap--band { position: relative; left: auto; bottom: auto; z-index: 2; max-width: 1440px; margin-inline: auto; padding: 28px max(var(--gut), env(safe-area-inset-right, 0px)) 36px max(var(--gut), env(safe-area-inset-left, 0px)); grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 32px; }
+.hero__cap--band h1, .hero__cap--band p { grid-column: 1; }
+.hero__cap--band p { max-width: 60ch; }
+.hero__cap--band .hero__actions { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+@media (max-width: 760px) { .hero__cap--band { grid-template-columns: 1fr; } .hero__cap--band .hero__actions { grid-column: 1; grid-row: auto; margin-top: 4px; } }
+@media (max-width: 760px) {
+  .hero__cap { position: static; max-width: none; padding: 26px max(16px, env(safe-area-inset-left, 0px)) 34px; }
+  .hero__shade { background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 18%); }
+  .feature { background: #3a0c13; }
+  .feature .hero__shade { display: none; }
+  .hero__actions .btn { flex: 1 1 auto; }
+}
 
-/* sections */
-.section { padding-block: clamp(72px, 10vw, 136px); }
-.section__head { display: grid; gap: 14px; margin-bottom: clamp(32px, 5vw, 60px); max-width: 60ch; }
+/* four-up grid: each draft like a product on grey */
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; }
+.item { display: grid; gap: 14px; padding-bottom: 28px; align-content: start; }
+.item__pic { background: var(--panel); aspect-ratio: 4 / 5; display: grid; place-items: center; overflow: hidden; }
+.item__pic img { width: 46%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.45); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.item:hover .item__pic img { transform: translateY(-6px) scale(1.02); }
+.item__txt { display: grid; gap: 2px; justify-items: center; text-align: center; padding-inline: 12px; }
+.item__name { font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.02em; }
+@media (max-width: 900px) { .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* what every draft carries */
-.carry { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); }
-.carry li { padding-top: 18px; border-top: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
-.carry strong { font-size: 1.1875rem; letter-spacing: -0.015em; font-weight: 600; }
-@media (max-width: 860px) { .carry { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .carry { grid-template-columns: 1fr; } }
+/* full-bleed feature with centred caption */
+.feature { position: relative; isolation: isolate; color: #ffffff; margin-top: 2px; }
+.feature > img { width: 100%; height: auto; aspect-ratio: 1920 / 835; min-height: 480px; object-fit: cover; }
+.feature .hero__shade { background: linear-gradient(to top right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 45%); }
 
-/* plans */
-.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 20px); align-items: stretch; }
-.plan { display: grid; grid-template-rows: auto auto 1fr; gap: 20px; padding: clamp(24px, 3vw, 36px); border-radius: var(--radius); background: var(--bg); border: 1px solid var(--line); }
-.plan--pick { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-.plan__name { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 1.375rem; font-weight: 600; letter-spacing: -0.02em; }
-.plan__tag { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0; color: #ffffff; background: var(--brand); padding: 4px 10px; border-radius: 999px; }
-.plan__price { font-size: clamp(2rem, 2.8vw, 2.6rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
-.plan__price small { display: block; margin-top: 10px; font-size: 0.9375rem; font-weight: 400; letter-spacing: 0; color: var(--muted); line-height: 1.4; }
-.plan__list { display: grid; gap: 10px; align-content: start; font-size: 1rem; padding-top: 20px; border-top: 1px solid var(--line); }
-.note { margin-top: 22px; font-size: 0.9375rem; color: var(--muted); max-width: 78ch; }
+/* two-up */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: 2px; }
+.duo__item { display: grid; gap: 14px; padding-bottom: 32px; align-content: start; }
+.duo__pic { overflow: hidden; aspect-ratio: 16 / 10; background: var(--panel); }
+.duo__pic img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.duo__item:hover .duo__pic img { transform: scale(1.025); }
+.duo__txt { display: grid; gap: 4px; justify-items: center; text-align: center; padding-inline: 16px; }
+.duo__txt .ulink { margin-top: 8px; }
+@media (max-width: 760px) { .duo { grid-template-columns: 1fr; } }
+
+/* text columns */
+.cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.cols li { padding: 28px clamp(16px, 2vw, 28px) 32px 0; display: grid; gap: 8px; align-content: start; }
+.cols li + li { padding-left: clamp(16px, 2vw, 28px); border-left: 1px solid var(--line); }
+.cols h3 { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0; }
+@media (max-width: 900px) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cols li:nth-child(3) { border-left: 0; padding-left: 0; } .cols li:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (max-width: 520px) { .cols { grid-template-columns: 1fr; } .cols li + li { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } }
+
+/* packages */
+.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; }
+.plan { background: var(--panel); padding: clamp(24px, 2.6vw, 36px); display: grid; grid-template-rows: auto auto 1fr; gap: 18px; }
+.plan--pick { background: #000000; color: #ffffff; }
+.plan__head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.plan__name { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0; }
+.plan__tag { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.plan__price { font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.plan__price small { display: block; margin-top: 10px; font-size: 0.8125rem; font-weight: 400; letter-spacing: -0.01em; color: var(--muted); }
+.plan--pick .plan__price small { color: #bdbdbd; }
+.plan__list { display: grid; gap: 9px; align-content: start; padding-top: 18px; border-top: 1px solid rgba(127, 127, 127, 0.3); }
+.plan__list li { font-size: 0.875rem; line-height: 1.45; color: #2b2b2b; }
+.plan--pick .plan__list li { color: #d6d6d6; }
+.fine { font-size: 0.8125rem; color: var(--muted); text-align: center; margin: 22px auto 0; max-width: 80ch; padding-inline: 16px; }
 @media (max-width: 1080px) { .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
 
-/* steps */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); counter-reset: s; }
-.steps li { counter-increment: s; padding: 24px; border-radius: var(--radius); background: var(--surface); display: grid; gap: 8px; align-content: start; }
-.steps li::before { content: counter(s); font-size: 2.25rem; font-weight: 600; letter-spacing: -0.04em; line-height: 1; color: var(--brand); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
-.steps strong { font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.015em; }
-@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
-
 /* close */
-.close { padding: clamp(36px, 6vw, 88px); border-radius: var(--radius); background: var(--surface); color: var(--ink); border: 1px solid var(--line); display: grid; gap: 22px; justify-items: start; }
-.close .handle { font-weight: 600; user-select: all; }
-.foot { padding-block: 36px 48px; font-size: 0.875rem; color: var(--muted); display: grid; gap: 8px; }
+.close { text-align: center; display: grid; justify-items: center; gap: 10px; padding-block: clamp(64px, 8vw, 112px); }
+.close .t-sub { max-width: 56ch; }
+.close .handle { font-weight: 700; color: var(--ink); user-select: all; }
+.close .btn { margin-top: 12px; }
+
+/* footer */
+.foot { background: var(--foot-bg); color: var(--foot-ink); }
+.foot__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding-block: 56px 40px; }
+.foot h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 16px; }
+.foot li { font-size: 0.8125rem; margin-bottom: 10px; color: var(--foot-muted); }
+.foot li a:hover { color: var(--foot-ink); }
+.foot__mark { text-align: center; font-size: clamp(2.25rem, 10vw, 9rem); font-weight: 700; letter-spacing: 0.3em; padding-left: 0.3em; line-height: 1; padding-block: 24px 20px; text-transform: uppercase; }
+.foot__legal { border-top: 1px solid #262626; padding-block: 20px 28px; font-size: 0.75rem; color: var(--foot-muted); display: grid; gap: 6px; }
+@media (max-width: 760px) { .foot__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<header class="bar">
-  <div class="wrap bar__row">
-    <a class="brand" href="#ust" aria-label="Licina Digital, sayfa başı"><span class="brand__mark" aria-hidden="true">L</span>Licina Digital</a>
-    <nav class="bar__links" aria-label="Sayfa">
-      <a href="#taslaklar">Taslaklar</a>
-      <a href="#icerik">Neler var</a>
-      <a href="#seo">SEO</a>
-      <a href="#paketler">Paketler</a>
-      <a href="#surec">Süreç</a>
-    </nav>
-    <a class="btn" href="#iletisim">Taslak iste</a>
-  </div>
-</header>
+<a class="skip" href="#taslaklar">Taslaklara geç</a>
+<p class="note-bar">Ücretsiz taslak: işletmenizin adıyla hazırlanmış halini önce size gösteriyoruz</p>
 
-<main id="ust">
-  <section class="hero">
-    <div class="wrap hero__grid">
-      <p class="kicker muted">Site kataloğu, Kasım 2026</p>
-      <h1 class="h-display">İşletmenize uyarlanacak dört site taslağı.</h1>
-      <p class="lead muted">Kafe, kuaför, pansiyon ve diş kliniği için hazırladığımız örnek siteler. Beğendiğinizi seçin; adınızı, fotoğraflarınızı ve fiyatlarınızı yerleştirelim.</p>
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <header class="head">
+      <div class="wrap head__row">
+        <nav class="head__left" aria-label="Sayfa">
+          <a href="#taslaklar">Taslaklar</a>
+          <a href="#seo">SEO</a>
+          <a href="#paketler">Paketler</a>
+        </nav>
+        <a class="mark" href="#taslaklar" aria-label="Licina Digital" lang="en">Licina</a>
+        <div class="head__right">
+          <a href="#surec">Süreç</a>
+          <a href="#iletisim">Taslak iste</a>
+        </div>
+      </div>
+    </header>
+    <img class="hero__pic" src="img/kafe-art.webp" alt="Kavruk taslağının ilk ekranı: koyu zeminde dev yazının önünde espresso fincanı" width="1920" height="835">
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__cap hero__cap--band">
+      <h1 id="hero-title">İşletmenize uyarlanacak dört site taslağı</h1>
+      <p>Kuaför, kafe, pansiyon ve diş kliniği için. Beğendiğinizi seçin; adınızı, fotoğraflarınızı ve fiyatlarınızı yerleştirelim.</p>
       <div class="hero__actions">
-        <a class="btn" href="#taslaklar">Taslaklara bak</a>
-        <a class="btn btn--quiet" href="#paketler">Paketleri gör</a>
+        <a class="btn btn--white" href="#taslaklar">Taslaklara bak</a>
+        <a class="btn btn--white" href="#paketler">Paketler</a>
       </div>
-      <p class="facts"><span>Markalar kurgusal</span><span>Taslaklardaki fiyatlar örnek</span><span>Fotoğraflar lisanslı yer tutucu</span></p>
     </div>
   </section>
 
-  <section id="taslaklar" aria-label="Taslaklar">
-    <div class="wrap tiles">
-
-      <article class="tile">
-        <div class="tile__text">
-          <p class="tile__sector">Kafe ve kavurma atölyesi</p>
-          <h2 class="h-tile">Kavruk</h2>
-          <p class="tile__copy">Koyu kavrum zemin, bakır vurgu. İlk ekranda dönen bir espresso fincanı, altında menü ve çekirdek siparişi.</p>
-          <ul class="tile__list">
-            <li>Fiyatlı menü, üç bölüm</li>
-            <li>250 gramlık çekirdek sipariş formu</li>
-            <li>Kavurma fotoğrafları, konum ve saatler</li>
-          </ul>
-          <a class="btn" href="kafe/" data-draft="kafe">Kavruk taslağını aç</a>
-        </div>
-        <div class="tile__shots">
-          <img class="shot-desk" src="img/kafe-desk.webp" alt="Kavruk taslağının masaüstü ilk ekranı: koyu zeminde dev KAVRUK yazısı önünde espresso fincanı" width="1440" height="900">
-          <img class="shot-phone" src="img/kafe-phone.webp" alt="Kavruk taslağının telefon görünümü" width="390" height="844" loading="lazy">
-        </div>
-      </article>
-
-      <article class="tile tile--flip">
-        <div class="tile__text">
-          <p class="tile__sector">Kuaför ve güzellik salonu</p>
-          <h2 class="h-tile">Atölye Nar</h2>
-          <p class="tile__copy">Nar kırmızısı ve fildişi. Dönen bir serum şişesi, hizmet fiyatları ve renk danışmasının üç adımı.</p>
-          <ul class="tile__list">
-            <li>Hizmet ve fiyat listesi</li>
-            <li>Renk danışması adımları</li>
-            <li>Randevu talep formu, çalışma saatleri</li>
-          </ul>
-          <a class="btn" href="kuafor/" data-draft="kuafor">Atölye Nar taslağını aç</a>
-        </div>
-        <div class="tile__shots">
-          <img class="shot-desk" src="img/kuafor-desk.webp" alt="Atölye Nar taslağının masaüstü ilk ekranı: nar kırmızısı zeminde serum şişesi" width="1440" height="900" loading="lazy">
-          <img class="shot-phone" src="img/kuafor-phone.webp" alt="Atölye Nar taslağının telefon görünümü" width="390" height="844" loading="lazy">
-        </div>
-      </article>
-
-      <article class="tile">
-        <div class="tile__text">
-          <p class="tile__sector">Butik pansiyon</p>
-          <h2 class="h-tile">Taş Avlu</h2>
-          <p class="tile__copy">Açık taş rengi, zeytin yeşili. Dönen pirinç bir oda anahtarı, odalar ve gecelik fiyatlar.</p>
-          <ul class="tile__list">
-            <li>Dört oda, gecelik fiyatlarıyla</li>
-            <li>Tarihli oda sorma formu</li>
-            <li>Sezon, giriş ve çıkış saatleri</li>
-          </ul>
-          <a class="btn" href="pansiyon/" data-draft="pansiyon">Taş Avlu taslağını aç</a>
-        </div>
-        <div class="tile__shots">
-          <img class="shot-desk" src="img/pansiyon-desk.webp" alt="Taş Avlu taslağının masaüstü ilk ekranı: açık zeminde pirinç oda anahtarı" width="1440" height="900" loading="lazy">
-          <img class="shot-phone" src="img/pansiyon-phone.webp" alt="Taş Avlu taslağının telefon görünümü" width="390" height="844" loading="lazy">
-        </div>
-      </article>
-
-      <article class="tile tile--flip">
-        <div class="tile__text">
-          <p class="tile__sector">Ağız ve diş sağlığı kliniği</p>
-          <h2 class="h-tile">Sedef Diş Atölyesi</h2>
-          <p class="tile__copy">Gece mavisi ve çelik. Dönen bir ağız aynası, tedavi fiyatları ve ilk muayenenin nasıl geçtiği.</p>
-          <ul class="tile__list">
-            <li>Tedavi ve başlangıç fiyatları</li>
-            <li>İlk muayene, üç adımda</li>
-            <li>Muayene randevusu formu</li>
-          </ul>
-          <a class="btn" href="dis/" data-draft="dis">Sedef taslağını aç</a>
-        </div>
-        <div class="tile__shots">
-          <img class="shot-desk" src="img/dis-desk.webp" alt="Sedef Diş Atölyesi taslağının masaüstü ilk ekranı: gece mavisi zeminde çelik ağız aynası" width="1440" height="900" loading="lazy">
-          <img class="shot-phone" src="img/dis-phone.webp" alt="Sedef Diş Atölyesi taslağının telefon görünümü" width="390" height="844" loading="lazy">
-        </div>
-      </article>
-
+  <section id="taslaklar" aria-labelledby="taslaklar-title">
+    <div class="wrap module">
+      <h2 class="t-title" id="taslaklar-title">Taslaklar</h2>
+      <p class="t-sub">Her birinin ilk ekranında kendi kendine dönen, sürükleyince çevrilen bir 3D nesne var. Telefonda da çalışır.</p>
+    </div>
+    <div class="grid4">
+      <a class="item" href="kafe/">
+        <span class="item__pic"><img src="img/kafe-phone.webp" alt="Kavruk taslağının telefon görünümü" width="390" height="844" loading="lazy"></span>
+        <span class="item__txt"><span class="item__name">Kavruk</span><span class="t-sub">Kafe ve kavurma atölyesi</span></span>
+      </a>
+      <a class="item" href="kuafor/">
+        <span class="item__pic"><img src="img/kuafor-phone.webp" alt="Atölye Nar taslağının telefon görünümü" width="390" height="844" loading="lazy"></span>
+        <span class="item__txt"><span class="item__name">Atölye Nar</span><span class="t-sub">Kuaför ve güzellik salonu</span></span>
+      </a>
+      <a class="item" href="pansiyon/">
+        <span class="item__pic"><img src="img/pansiyon-phone.webp" alt="Taş Avlu taslağının telefon görünümü" width="390" height="844" loading="lazy"></span>
+        <span class="item__txt"><span class="item__name">Taş Avlu</span><span class="t-sub">Butik pansiyon</span></span>
+      </a>
+      <a class="item" href="dis/">
+        <span class="item__pic"><img src="img/dis-phone.webp" alt="Sedef Diş Atölyesi taslağının telefon görünümü" width="390" height="844" loading="lazy"></span>
+        <span class="item__txt"><span class="item__name">Sedef Diş Atölyesi</span><span class="t-sub">Ağız ve diş sağlığı kliniği</span></span>
+      </a>
     </div>
   </section>
 
-  <section class="section" id="icerik">
+  <section class="feature" aria-labelledby="nar-title">
+    <img src="img/kuafor-art.webp" alt="Atölye Nar taslağının ilk ekranı: nar kırmızısı zeminde serum şişesi" width="1920" height="835" loading="lazy">
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__cap">
+      <h2 class="t-title" id="nar-title">Atölye Nar</h2>
+      <p>Hizmet fiyatları, renk danışmasının üç adımı ve randevu formu.</p>
+      <div class="hero__actions"><a class="btn btn--white" href="kuafor/">Taslağı aç</a></div>
+    </div>
+  </section>
+
+  <div class="duo">
+    <a class="duo__item" href="pansiyon/">
+      <span class="duo__pic"><img src="img/pansiyon-art.webp" alt="Taş Avlu taslağının ilk ekranı: açık taş renginde pirinç oda anahtarı" width="1920" height="835" loading="lazy"></span>
+      <span class="duo__txt"><span class="t-title">Taş Avlu</span><span class="t-sub">Dört oda, gecelik fiyatlar ve tarihli oda sorma formu.</span><span class="ulink">Taslağı aç</span></span>
+    </a>
+    <a class="duo__item" href="dis/">
+      <span class="duo__pic"><img src="img/dis-art.webp" alt="Sedef Diş Atölyesi taslağının ilk ekranı: gece mavisi zeminde çelik ağız aynası" width="1920" height="835" loading="lazy"></span>
+      <span class="duo__txt"><span class="t-title">Sedef Diş Atölyesi</span><span class="t-sub">Tedavi fiyatları, ilk muayenenin üç adımı ve randevu formu.</span><span class="ulink">Taslağı aç</span></span>
+    </a>
+  </div>
+
+  <section id="icerik" aria-labelledby="icerik-title">
+    <div class="wrap module">
+      <h2 class="t-title" id="icerik-title">Her taslakta</h2>
+      <p class="t-sub">Dördü aynı iskeleti kullanır. Renk, yazı tipi ve nesne işletmeye göre değişir.</p>
+    </div>
     <div class="wrap">
-      <div class="section__head">
-        <h2 class="h-section">Her taslakta olanlar</h2>
-        <p class="lead muted">Dördü de aynı iskeleti kullanır. Renk, yazı tipi ve nesne işletmeye göre değişir.</p>
-      </div>
-      <ul class="carry">
-        <li><strong>Dönen 3D nesne</strong><span class="muted">İlk ekranda kendi kendine döner, sürükleyince elinizle çevrilir. Telefonda da çalışır.</span></li>
-        <li><strong>Okunur fiyat listesi</strong><span class="muted">Müşterinin ilk sorduğu şey fiyat. Liste sayfanın ortasında, büyük yazıyla durur.</span></li>
-        <li><strong>Talep formu</strong><span class="muted">Randevu, oda ya da sipariş talebi tek formla toplanır ve size gelir.</span></li>
-        <li><strong>Konum ve saatler</strong><span class="muted">Semt büyük yazıyla, çalışma saatleri hemen altında. Aramadan gelen kişi kaybolmaz.</span></li>
+      <ul class="cols">
+        <li><h3>Dönen 3D nesne</h3><p class="t-sub">İlk ekranda kendi kendine döner, sürükleyince elinizle çevrilir.</p></li>
+        <li><h3>Okunur fiyat listesi</h3><p class="t-sub">Müşterinin ilk sorduğu şey fiyat. Liste büyük yazıyla, sayfanın ortasında durur.</p></li>
+        <li><h3>Talep formu</h3><p class="t-sub">Randevu, oda ya da sipariş talebi tek formla toplanır ve size gelir.</p></li>
+        <li><h3>Konum ve saatler</h3><p class="t-sub">Semt büyük yazıyla, çalışma saatleri hemen altında.</p></li>
       </ul>
     </div>
   </section>
 
-  <section class="section" id="seo" style="padding-top:0">
+  <section id="seo" aria-labelledby="seo-title">
+    <div class="wrap module">
+      <h2 class="t-title" id="seo-title">Google'da bulunmak için SEO</h2>
+      <p class="t-sub">"Moda kuaför" ya da "Karaköy kahve" diye arayan kişinin sizi bulması gerekir. SEO, Vitrin paketiyle başlar.</p>
+    </div>
     <div class="wrap">
-      <div class="section__head">
-        <h2 class="h-section">Google'da bulunmak için SEO</h2>
-        <p class="lead muted">Güzel bir site yetmez; "Moda kuaför" ya da "Karaköy kahve" diye arayan kişinin sizi bulması gerekir. SEO, Vitrin paketiyle başlar.</p>
-      </div>
-      <ul class="carry" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <li><strong>Sayfa içi SEO</strong><span class="muted">Her sayfanın başlığı ve açıklaması, hizmetinize ve semtinize göre yazılır.</span></li>
-        <li><strong>Yapılandırılmış veri</strong><span class="muted">Adres, saat ve hizmet bilgisi Google'ın okuduğu biçimde siteye eklenir.</span></li>
-        <li><strong>Hızlı açılan sayfa</strong><span class="muted">Site hafif ve statik kurulur; telefonda beklemeden açılır.</span></li>
-        <li><strong>Blog yazıları</strong><span class="muted">Tam pakette, müşterilerinizin aradığı sorulara ayda iki yazı.</span></li>
+      <ul class="cols">
+        <li><h3>Sayfa içi SEO</h3><p class="t-sub">Her sayfanın başlığı ve açıklaması hizmetinize ve semtinize göre yazılır.</p></li>
+        <li><h3>Yapılandırılmış veri</h3><p class="t-sub">Adres, saat ve hizmet bilgisi Google'ın okuduğu biçimde siteye eklenir.</p></li>
+        <li><h3>Hızlı açılan sayfa</h3><p class="t-sub">Site hafif ve statik kurulur; telefonda beklemeden açılır.</p></li>
+        <li><h3>Blog yazıları</h3><p class="t-sub">Tam pakette, müşterilerinizin aradığı sorulara ayda iki yazı.</p></li>
       </ul>
     </div>
   </section>
 
-  <section class="section" id="paketler" style="padding-top:0">
+  <section id="paketler" aria-labelledby="paketler-title">
+    <div class="wrap module">
+      <h2 class="t-title" id="paketler-title">Paketler ve fiyatlar</h2>
+      <p class="t-sub">Her paket seçtiğiniz taslakla kurulur. Fiyatlar dolar cinsindendir ve KDV hariçtir; TL ile ödemede o günün kuru kullanılır.</p>
+    </div>
     <div class="wrap">
-      <div class="section__head">
-        <h2 class="h-section">Paketler ve fiyatlar</h2>
-        <p class="lead muted">Her paket seçtiğiniz taslakla kurulur. Fiyatlar dolar cinsindendir ve KDV hariçtir; TL ile ödemede o günün kuru kullanılır.</p>
-      </div>
       <div class="plans">
         <article class="plan">
-          <h3 class="plan__name">Başlangıç</h3>
+          <div class="plan__head"><h3 class="plan__name">Başlangıç</h3></div>
           <p class="plan__price">$350<small>kurulum, sonra ayda $15 bakım</small></p>
           <ul class="plan__list">
             <li>Katalogdaki taslaklardan biriyle tek sayfa site</li>
@@ -278,7 +275,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           </ul>
         </article>
         <article class="plan">
-          <h3 class="plan__name">Vitrin</h3>
+          <div class="plan__head"><h3 class="plan__name">Vitrin</h3></div>
           <p class="plan__price">$650<small>kurulum, sonra ayda $25 bakım</small></p>
           <ul class="plan__list">
             <li>Başlangıç paketindeki her şey</li>
@@ -288,7 +285,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           </ul>
         </article>
         <article class="plan plan--pick">
-          <h3 class="plan__name">Ön büro<span class="plan__tag">Önerilen</span></h3>
+          <div class="plan__head"><h3 class="plan__name">Ön büro</h3><span class="plan__tag">Önerilen</span></div>
           <p class="plan__price">$1.100<small>kurulum, sonra ayda $45 bakım</small></p>
           <ul class="plan__list">
             <li>Vitrin paketindeki her şey</li>
@@ -299,7 +296,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           </ul>
         </article>
         <article class="plan">
-          <h3 class="plan__name">Tam paket</h3>
+          <div class="plan__head"><h3 class="plan__name">Tam paket</h3></div>
           <p class="plan__price">$1.700<small>kurulum, sonra ayda $75 bakım</small></p>
           <ul class="plan__list">
             <li>Ön büro paketindeki her şey</li>
@@ -309,38 +306,46 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           </ul>
         </article>
       </div>
-      <p class="note">Bakım ücretine alan adı, barındırma ve küçük değişiklikler dahildir. Bakımı istediğiniz zaman iptal edebilirsiniz; site ve alan adı sizde kalır.</p>
+      <p class="fine">Bakım ücretine alan adı, barındırma ve küçük değişiklikler dahildir. Bakımı istediğiniz zaman iptal edebilirsiniz; site ve alan adı sizde kalır.</p>
     </div>
   </section>
 
-  <section class="section" id="surec" style="padding-top:0">
+  <section id="surec" aria-labelledby="surec-title">
+    <div class="wrap module">
+      <h2 class="t-title" id="surec-title">Taslaktan yayına</h2>
+      <p class="t-sub">Dört adımda, sizi uğraştırmadan.</p>
+    </div>
     <div class="wrap">
-      <div class="section__head">
-        <h2 class="h-section">Taslaktan yayına dört adım</h2>
-      </div>
-      <ol class="steps">
-        <li><strong>Taslağı seçin</strong><span class="muted">Katalogdan size en yakın olanı söyleyin.</span></li>
-        <li><strong>15 dakika konuşalım</strong><span class="muted">Hizmetlerinizi, fiyatlarınızı ve saatlerinizi alırız.</span></li>
-        <li><strong>Sizin için kurarız</strong><span class="muted">Adınız, renginiz ve kendi fotoğraflarınız yerine oturur.</span></li>
-        <li><strong>Yayına alırız</strong><span class="muted">Alan adı sizin adınıza açılır. Sonraki değişiklikleri biz yaparız.</span></li>
+      <ol class="cols">
+        <li><h3>1. Taslağı seçin</h3><p class="t-sub">Katalogdan size en yakın olanı söyleyin.</p></li>
+        <li><h3>2. 15 dakika konuşalım</h3><p class="t-sub">Hizmetlerinizi, fiyatlarınızı ve saatlerinizi alırız.</p></li>
+        <li><h3>3. Sizin için kurarız</h3><p class="t-sub">Adınız, renginiz ve kendi fotoğraflarınız yerine oturur.</p></li>
+        <li><h3>4. Yayına alırız</h3><p class="t-sub">Alan adı sizin adınıza açılır. Sonraki değişiklikleri biz yaparız.</p></li>
       </ol>
     </div>
   </section>
 
-  <section id="iletisim" aria-labelledby="close-title">
-    <div class="wrap">
-      <div class="close">
-        <h2 class="h-section" id="close-title">Beğendiğiniz taslağı yazın.</h2>
-        <p class="lead muted">Instagram'da <span class="handle">@licinadigital</span> hesabına taslağın adını gönderin. İşletmenizin adıyla hazırlanmış halini size gösterelim.</p>
-        <a class="btn" href="https://www.instagram.com/licinadigital/" target="_blank" rel="noopener">Instagram'da yaz</a>
-      </div>
-    </div>
+  <section class="wrap close" id="iletisim" aria-labelledby="close-title">
+    <h2 class="t-title" id="close-title">Taslak isteyin</h2>
+    <p class="t-sub">Instagram'da <span class="handle">@licinadigital</span> hesabına beğendiğiniz taslağın adını yazın; işletmenizin adıyla hazırlanmış halini gösterelim.</p>
+    <a class="btn btn--black" href="https://www.instagram.com/licinadigital/" target="_blank" rel="noopener">Instagram'da yaz</a>
   </section>
 </main>
 
-<footer class="wrap foot">
-  <p>Licina Digital yeni bir stüdyodur. Katalogdaki dört işletme kurgusaldır; adlar, fiyatlar ve saatler örnek olarak yazılmıştır.</p>
-  <p>Taslaklardaki fotoğraflar Wikimedia Commons üzerinden lisanslı yer tutuculardır ve işletmenin kendi fotoğraflarıyla değişir. Kaynak listesi her taslağın alt bilgisindedir.</p>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__cols">
+      <div><h3>Taslaklar</h3><ul><li><a href="kafe/">Kavruk</a></li><li><a href="kuafor/">Atölye Nar</a></li><li><a href="pansiyon/">Taş Avlu</a></li><li><a href="dis/">Sedef Diş Atölyesi</a></li></ul></div>
+      <div><h3>Hizmetler</h3><ul><li><a href="#paketler">Site kurulumu</a></li><li><a href="#seo">SEO</a></li><li><a href="#paketler">DM ve WhatsApp otomasyonu</a></li><li><a href="#paketler">Reels ve blog</a></li></ul></div>
+      <div><h3>Paketler</h3><ul><li><a href="#paketler">Başlangıç, $350</a></li><li><a href="#paketler">Vitrin, $650</a></li><li><a href="#paketler">Ön büro, $1.100</a></li><li><a href="#paketler">Tam paket, $1.700</a></li></ul></div>
+      <div><h3>İletişim</h3><ul><li><a href="https://www.instagram.com/licinadigital/" target="_blank" rel="noopener">Instagram: @licinadigital</a></li></ul></div>
+    </div>
+    <p class="foot__mark" aria-hidden="true" lang="en">Licina</p>
+    <div class="foot__legal">
+      <p>Licina Digital yeni bir stüdyodur. Katalogdaki dört işletme kurgusaldır; taslaklardaki adlar, fiyatlar ve saatler örnektir.</p>
+      <p>Taslaklardaki fotoğraflar Wikimedia Commons üzerinden lisanslı yer tutuculardır; kaynak listesi her taslağın alt bilgisindedir.</p>
+    </div>
+  </div>
 </footer>
 </body>
 </html>
